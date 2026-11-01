@@ -1,11 +1,12 @@
 
 from fastapi import FastAPI
 from rag_platform.api.v1.health import router as health_router
+from rag_platform.core.config import settings
 
 app = FastAPI(
-    title="AI Document Intelligence API",
-    description="Production-grade AI Document Intelligence and RAG Platform",
-    version="0.1.0",
+    title=settings.app_name,
+    version=settings.app_version,
+    debug=settings.debug,
 )
 
 app.include_router(
